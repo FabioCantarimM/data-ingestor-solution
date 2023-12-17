@@ -12,6 +12,8 @@ df = pd.read_csv(file_name)
 df['indice'] = range(1, len(df) +1)
 df.set_index('indice', inplace=True)
 
+lojapadraoonline = 11
+
 @app.get("/gerar_compra")
 async def gerar_compra():
     index = random.randint(1, len(df)-1)
@@ -23,7 +25,7 @@ async def gerar_compra():
             "ean": int(tuple["EAN"]),
             "price":  round(float(tuple["Price"])*1.2,2),
             "clientPosition": fake.location_on_land(),
-            "store": 11,
+            "store": lojapadraoonline,
             "dateTime": fake.iso8601()
         }]
 
@@ -34,6 +36,9 @@ async def gerar_compra(numero_registro: int):
         return {"error" : "O número deve ser maior que 1"}
     
     respostas = []
+
+ 
+
     for _ in range(numero_registro):
         index = random.randint(1, len(df)-1)
         tuple = df.iloc[index]
@@ -45,7 +50,7 @@ async def gerar_compra(numero_registro: int):
                 "price":  round(float(tuple["Price"])*1.2,2),
                 # "price":  "hoje é de graça",
                 "clientPosition": fake.location_on_land(),
-                "store": 11,
+                "store": lojapadraoonline,
                 "dateTime": fake.iso8601()
                 }
         respostas.append(compra)

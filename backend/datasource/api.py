@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-import pyarrow.parquet as pq
 import datetime
 from io import BytesIO
 from contracts.schema import GenericSchema
