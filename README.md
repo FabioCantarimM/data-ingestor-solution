@@ -4,4 +4,4 @@ Experimento de criação de plataforma de dados com solução back-end, front-en
 
 See also 
 - [Luciano Filho](https://www.linkedin.com/in/lucianovasconcelosf/) Idealizador do projeto, Data Product Manager @ Ascential | Data Engineer | Data Quality | Data Governance.
-- [Fabio Melo](https://www.linkedin.com/in/fabiocmelo/) Apoio técnico, Technology Manager @ Flywheel Digital | Data Engineer | Full Stack Developer | Web Scrapping |.
+- [Fabio Melo](https://www.linkedin.com/in/fabiocmelo/) Apoio técnico, Technology Manager @ Flywheel Digital | Data Engineer | Full Stack Developer | Web Scrapping.
