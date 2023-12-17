@@ -1,6 +1,7 @@
 import streamlit as st
 import openpyxl
 import pandas as pd
+from pydantic import ValidationError
 
 class CSVCollector:
         def __init__ (self, schema, aws, cell_range): 
@@ -41,15 +42,20 @@ class CSVCollector:
               
         def validateData(self, dataframe):
             error = []
+            valid_rows = []  # To store valid rows
+
             for index, row in dataframe.iterrows():
                 try:
-                    self._schema(**row.to_dict())
-                except BaseException as e:    
-                    error.append(f"Erro na linha {index+1}: {e}")
+                    # Create an instance of the Pydantic model for each row
+                    valid_row = self._schema(**row.to_dict())
+                    valid_rows.append(valid_row)  # Add the valid row to the list
+                except ValidationError as e:
+                    # Append error message for rows that fail validation
+                    error.append(f"Erro na linha {index + 1}: {str(e)}")
 
             if error:
                 st.error("\n".join(error))  # Displaying errors in Streamlit
-                return None  # Optional: Return None or handle it as per your logic
+                return None  # Return None if there are errors
 
             st.success("Tudo certo!")
             return dataframe
