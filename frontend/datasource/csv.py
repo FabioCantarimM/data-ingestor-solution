@@ -17,8 +17,7 @@ class CSVCollector:
             if getData is not None:
                 extractData = self.extractData(getData)
             if extractData is not None:
-                validateData = self.validateData(extractData)
-                return validateData
+                self.validateData(extractData)
               
               
         def getData(self):

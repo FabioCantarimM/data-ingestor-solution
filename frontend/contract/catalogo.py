@@ -18,7 +18,7 @@ class Catalogo(BaseModel):
     EAN: int
     Produto: str
     Categoria: CategoriaEnum
-    Descricao: str
+    Descrição: str
     Preço: PositiveFloat
     Fornecedor: EmailStr
     Data: date
